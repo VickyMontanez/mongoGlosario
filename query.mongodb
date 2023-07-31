@@ -1,0 +1,25 @@
+//Create a new DataBase
+use("db_campus_alquiler");
+//Create a Collection
+db.createCollection("alquiler");
+//Insert Data to the Collection
+db.alquiler.insertOne({
+    _id: ObjectId(678),
+    "ID_Alquiler": 1,
+    "ID_Cliente": 1,
+    "ID_Automovil_id": ObjectId(456),
+    "Fecha_Inicio": "31/07/2023",
+    "Fecha_Fin": "31/08/2023",
+    "Costo_Total": 19997273665.654,
+    "Estado": "Pendiente"
+})
+
+//Create a relationship between two collections
+db.getCollection("name_collection").aggregate({
+    $lookup:{
+        from: "collection_1",
+        localField: "_id",
+        foreignField: "collection_1_id",
+        as: "alias"
+    }
+});
