@@ -8,6 +8,10 @@ In simple terms, MongoDB is like a super flexible storage system for large amoun
 
 
 
+<img src="https://raw.githubusercontent.com/VickyMontanezCampus/glosarioMongoDB/main/img/start.png" style="zoom: 200%;" />
+
+
+
 ## :sparkles:Key features of MongoDB:sparkles:
 
 
