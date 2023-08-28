@@ -496,8 +496,71 @@ This guide explains how to set up and run a MongoDB Express server using the pro
         ```
 
       - Replace `<username>`, `<password>`, `<cluster-url>`, and `<database>` with the appropriate values.
-
+        
       
+
+### :wrench: Configure Files
+
+1. **Create `db/atlas.js`**
+
+   Create a file named `atlas.js` inside the `db` folder in your project directory:
+
+   ```javascript
+   import dotenv from 'dotenv';
+   import { MongoClient } from "mongodb";
+   
+   dotenv.config();
+   
+   export async function conx() {
+       try {
+           const uri = `mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASSWORD}@atlascluster.3c0ouhb.mongodb.net/${process.env.ATLAS_DB}`;
+           const options = {
+               useNewUrlParser: true,
+               useUnifiedTopology: true,
+           };
+           const client = await MongoClient.connect(uri, options);
+           return client.db();
+       } catch (error) {
+           return { status: 500, message: error };
+       }
+   }
+   ```
+
+   
+
+2. **Create `app.js`**
+
+   Create a file named `app.js` in your project directory:
+
+   ```javascript
+   import dotenv from "dotenv";
+   import express from "express";
+   import { conx } from "./db/atlas.js";
+   
+   dotenv.config();
+   const app = express();
+   
+   const config = JSON.parse(process.env.MY_SERVER);
+   
+   app.listen(config.port, () => {
+       console.log(`Server is running at http://${config.hostname}:${config.port}`);
+   });
+   ```
+
+   
+
+3. **Create `.env` File**
+
+   Create a `.env` file in your project directory and add the following:
+
+   ```env
+   ATLAS_USER=your_atlas_username
+   ATLAS_PASSWORD=your_atlas_password
+   ATLAS_DB=your_atlas_database_name
+   MY_SERVER={"hostname": "localhost", "port": 3000}
+   ```
+
+
 
 #### Autor✨
 
