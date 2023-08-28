@@ -63,8 +63,6 @@ To install MongoDB, follow these general steps:
 
 
 
-
-
 # :sparkles:Basic Methods of MongoDB✨
 
 ### use
@@ -172,6 +170,170 @@ The `aggregate` method is used to perform  aggregation operations on the documen
 ```
 db.my_collection_name.aggregate([ { stage1 },  { stage2 }, ... ]);
 ```
+
+
+
+​    
+
+## :sparkles:MongoDB Operators:sparkles:
+
+
+
+## $lookup
+
+The `$lookup` operator is used to perform a  "left outer join" operation between two collections. It allows combining documents from one collection with documents from another collection  based on a common field.
+
+```
+db.my_collection_name.aggregate([
+  {
+    $lookup: {
+      from: <collection to join>,
+      localField: <field from the input documents>,
+      foreignField:<field from the documents of the "from" collection>,
+      as: <output array field>
+    }
+  }
+]);
+```
+
+​    
+
+## $project
+
+The `$project` operator is used to select specific fields from documents and reshape the output.
+
+```
+db.my_collection_name.aggregate([
+  {
+    $project: {
+      name: 1,
+      price: 0
+    }
+  }
+]);
+```
+
+​    
+
+## $group
+
+The `$group` operator is used to group documents and perform aggregation calculations within those groups.
+
+```
+db.my_collection_name.aggregate([
+  {
+    $group: {
+      _id: <expression>, // Group key
+      <field1>: { <accumulator1> : <expression1> },
+      ...
+    }
+  }
+]);
+```
+
+​    
+
+## $match
+
+The `$match` operator is used to filter documents in the aggregation pipeline stage.
+
+```
+db.my_collection_name.aggregate([
+  {
+    $match: <query>
+  }
+]);
+```
+
+​    
+
+## $unwind
+
+The `$unwind` operator is used to unwind an  array field into individual documents. This is useful when you want to  perform aggregation operations on individual elements within the array.
+
+```
+db.my_collection_name.aggregate([
+  {
+    $unwind: <field path> 
+  }
+]);
+```
+
+​    
+
+## $addFields
+
+The `$addFields` operator is used to add calculated fields to the documents in the aggregation pipeline stage.
+
+```
+db.my_collection_name.aggregate([
+	{
+        $addFields: { <newField>: <expression>, ... }
+    }
+]);
+```
+
+​    
+
+## $sort
+
+Sorts all input documents and returns them to the pipeline in sorted order..
+
+```
+ { $sort: { <field1>: <sort order>, <field2>: <sort order> ... } }
+```
+
+​    
+
+## $sum
+
+Calculates and returns the collective sum of numeric values. [`$sum`](https://www.mongodb.com/docs/upcoming/reference/operator/aggregation/sum/#mongodb-group-grp.-sum) ignores non-numeric values.
+
+```
+	 { $sum: <expression> }
+```
+
+​    
+
+## $gt
+
+selects those documents where the value of the field is greater than (i.e. >) the specified value.
+
+```
+    { field: { $gt: value } }
+```
+
+​    
+
+## $gte
+
+selects the documents where the value of the field is greater than or equal to (i.e. >=) a specified value (e.g. value.).
+
+```
+    { field: { $gte: value } }
+```
+
+​    
+
+## $lt
+
+selects the documents where the value of the field is less than (i.e. <) the specified value.
+
+```
+    { field: { $lt: value } }
+```
+
+​    
+
+## $lte
+
+selects the documents where the value of the field is less than or equal to (i.e. <=) the specified value.
+
+```
+    { field: { $lte: value } 
+```
+
+
 
 
 
