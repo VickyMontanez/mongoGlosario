@@ -562,6 +562,24 @@ This guide explains how to set up and run a MongoDB Express server using the pro
 
 
 
+### :rocket: Running the Server
+
+1. **Start the Server**
+
+   Run the following command to start your Express server:
+
+   ```sh
+   npm run dev
+   ```
+
+   Your server should be running at `http://localhost:3000` (or the port you've configured).
+
+2. **Access the Server**
+
+   Open your web browser and navigate to `http://localhost:3000` to see if your server is running successfully.
+
+   
+
 #### Autor✨
 
 Vicky Vanessa Montañez Molina ---
