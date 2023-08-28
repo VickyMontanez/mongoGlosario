@@ -335,6 +335,81 @@ selects the documents where the value of the field is less than or equal to (i.e
 
 
 
+## :sparkles: Setting Up and Running a MongoDB Express Server :sparkles:
+
+This guide explains how to set up and run a MongoDB Express server using the provided code files. You'll learn how to establish a connection to a MongoDB Atlas cluster and run the Express server to serve your application.
+
+### :page_facing_up: Prerequisites
+
+1. Node.js and npm installed on your machine.
+2. A MongoDB Atlas account with a cluster set up.
+3. Basic familiarity with MongoDB and Express.
+
+### :rocket: Getting Started
+
+1. **Create a New Project**
+
+   Create a new project directory and navigate into it using your terminal.
+
+   ```sh
+   mkdir mongo-express-server
+   cd mongo-express-server
+   ```
+
+2. **Install Dependencies**
+
+   In your project folder, create a `package.json` file:
+
+   ```sh
+   npm init -y
+   ```
+
+   ```
+   Result:
+   {
+     "name": "mongo-express-server",
+     "version": "1.0.0",
+     "description": "",
+     "main": "app.js",
+     "scripts": {
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "keywords": [],
+     "author": "",
+     "license": "ISC"
+   }
+   
+   ```
+
+   
+
+   Install required dependencies:
+
+   ```sh
+   npm install express mongodb dotenv
+   ```
+
+   ```
+   Result: 
+   {
+     "name": "mongo-express-server",
+     "version": "1.0.0",
+     "description": "",
+     "main": "app.js",
+     "scripts": {
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "keywords": [],
+     "author": "",
+     "license": "ISC",
+     "devDependencies": {
+       "dotenv": "16.3.1",
+       "express": "4.18.2",
+       "mongodb": "5.7.0"
+     }
+   }
+   ```
+
 
 
 #### Autor✨
