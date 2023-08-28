@@ -364,7 +364,7 @@ This guide explains how to set up and run a MongoDB Express server using the pro
    npm init -y
    ```
 
-   ```
+   ```json
    Result:
    {
      "name": "mongo-express-server",
@@ -389,7 +389,7 @@ This guide explains how to set up and run a MongoDB Express server using the pro
    npm install express mongodb dotenv
    ```
 
-   ```
+   ```json
    Result: 
    {
      "name": "mongo-express-server",
@@ -398,6 +398,31 @@ This guide explains how to set up and run a MongoDB Express server using the pro
      "main": "app.js",
      "scripts": {
        "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "keywords": [],
+     "author": "",
+     "license": "ISC",
+     "devDependencies": {
+       "dotenv": "16.3.1",
+       "express": "4.18.2",
+       "mongodb": "5.7.0"
+     }
+   }
+   ```
+
+   
+
+   You need to config this file ``./package.json`` before the next step:
+
+   ```json
+   {
+     "name": "mongo-express-server",
+     "version": "1.0.0",
+     "description": "",
+     "main": "app.js",
+     "type": "module",
+     "scripts": {
+        "dev": "nodemon --quiet app.js"
      },
      "keywords": [],
      "author": "",
