@@ -580,6 +580,65 @@ This guide explains how to set up and run a MongoDB Express server using the pro
 
    
 
+### :hammer_and_wrench: MongoDB Operations
+
+The following code snippets demonstrate common MongoDB operations using the `mongodb` driver. Uncomment and integrate them into the `index.js` file:
+
+1. **List All Collections:**
+
+   ```javascript
+   const collections = await db.listCollections().toArray();
+   console.log("Collections:", collections);
+   ```
+
+2. **Check if a Collection Exists:**
+
+   ```javascript
+   const collectionExists = await db.listCollections({ name: "users" }).hasNext();
+   console.log("Collection 'users' exists:", collectionExists);
+   ```
+
+3. **Create a Collection:**
+
+   ```javascript
+   const res = await db.createCollection("siMor");
+   console.log("Collection created:", res);
+   ```
+
+4. **Insert One Document:**
+
+   ```javascript
+   const collection = db.collection("siMor");
+   const insertResult = await collection.insertOne({
+     name: "Vicky",
+     surname: "Montañez",
+     point: "jijijiji"
+   });
+   console.log("Inserted document:", insertResult.insertedId);
+   ```
+
+5. **Insert Many Documents:**
+
+   ```javascript
+   const collection = db.collection("siMor");
+   const insertResult = await collection.insertMany([
+     { a: 1 },
+     { a: 2 },
+     { a: 3 }
+   ]);
+   console.log("Inserted documents:", insertResult.insertedIds);
+   ```
+
+6. **Find All Documents in a Collection:**
+
+   ```javascript
+   const collection = db.collection("siMor");
+   const findResult = await collection.find({}).toArray();
+   console.log("Found documents:", findResult);
+   ```
+
+#### 
+
 #### Autor✨
 
 Vicky Vanessa Montañez Molina ---
