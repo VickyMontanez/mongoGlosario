@@ -60,3 +60,124 @@ To install MongoDB, follow these general steps:
 5. **Verify Installation**:
    - Open a terminal or command prompt.
    - Type `npm mongo --version` and press Enter. If MongoDB is installed correctly, this command displays the version of MongoDB you have installed on your system.
+
+
+
+
+
+# :sparkles:Basic Methods of MongoDB✨
+
+### use
+
+In MongoDB, you don't need to explicitly create a  database. Simply choose a database when you start inserting data into  it. You can select or create a database using the `   use database_name` command.
+
+```
+use mi_base_de_datos;
+```
+
+​    
+
+### createCollection
+
+The `createCollection` function is used to  explicitly create a new collection in a database. While MongoDB allows  collections to be created dynamically when data is inserted, sometimes  it's useful to create a collection before inserting documents to have  greater control over its options, such as indexes, storage options,  validations, etc.
+
+```
+db.createCollection(name, options);
+```
+
+​    
+
+### insertOne
+
+The `insertOne` method is used to insert a single document into a collection.
+
+```
+db.my_collection_name.insertOne(document);
+
+db.my_collection_name.insertOne({
+  key1: "value1",
+  key2: "value2"
+});
+```
+
+​    
+
+### insertMany
+
+The `insertMany` method is used to insert multiple documents into a collection.
+
+```
+db.my_collection_name.insertMany([document1, document2, ...]);
+
+db.my_collection_name.insertMany([
+  { key1: "value1", key2: "value2" },
+  { key1: "value3", key2: "value4" }
+]);
+```
+
+​    
+
+### updateOne and updateMany
+
+The `update` method is used to update documents in a collection. However, starting from MongoDB 4.2, it's recommended to use `updateOne` or `updateMany` as the `update` method is deprecated.
+
+```
+//updateOne
+
+db.my_collection_name.updateOne(
+  { key1: "value1" },
+  { $set: { key2: "new_value" } }
+);
+
+// updateMany
+
+db.my_collection_name.updateMany(
+  { key1: "value1" },
+  { $set: { key2: "new_value" } }
+);
+```
+
+​    
+
+### deleteOne and deleteMany
+
+Similar to `update`, the `delete` method is also deprecated, and it's recommended to use `deleteOne` or `deleteMany` to remove documents.
+
+```
+// deleteOne
+
+db.my_collection_name.deleteOne({ key1: "value1" });
+
+// deleteMany
+
+db.my_collection_name.deleteMany({ key1: "value1" });
+```
+
+​    
+
+### find
+
+The `find` method is used to perform queries on a collection and retrieve documents that match a given filter.
+
+```
+db.my_collection_name.find(  filter );
+```
+
+​    
+
+### aggregate
+
+The `aggregate` method is used to perform  aggregation operations on the documents within a collection. This  enables more complex transformations and calculations to be performed on the data.
+
+```
+db.my_collection_name.aggregate([ { stage1 },  { stage2 }, ... ]);
+```
+
+
+
+#### Autor✨
+
+Vicky Vanessa Montañez Molina ---
+
+- [vmontanez707@gmail.com](mailto:vmontanez707@gmail.com)
+- https://github.com/VickyMontanezCampus
